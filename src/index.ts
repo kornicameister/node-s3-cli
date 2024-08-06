@@ -1,17 +1,13 @@
 import fs from 'fs/promises';
 
 import { S3Client } from '@aws-sdk/client-s3';
-import chalk from 'chalk';
 import { Command } from 'commander';
-import figlet from 'figlet';
 
 import pkg from '../package.json';
 
 import { deleteFiles } from './actions/deleteFiles';
 import { listBucket } from './actions/listBucket';
 import { uploadFile } from './actions/uploadFile';
-
-console.log(figlet.textSync('S3 CLI'));
 
 const program = new Command();
 program
@@ -35,12 +31,12 @@ program
       }),
     });
     if (!objects.length && options.filter) {
-      console.log(chalk.gray('No objects found matching filter'));
+      console.log('No objects found matching filter');
     } else if (!objects.length) {
-      console.log(chalk.gray('Bucket is empty'));
+      console.log('Bucket is empty');
     } else {
       for (const object of objects) {
-        console.log(`${chalk.grey('-')} ${chalk.green(object)}`);
+        console.log(`- ${object}`);
       }
     }
   });
@@ -60,7 +56,7 @@ program
         region: options['region'],
       }),
     });
-    console.log(chalk.green('File uploaded'));
+    console.log('File uploaded');
   });
 
 program
@@ -76,7 +72,7 @@ program
         region: options['region'],
       }),
     });
-    console.log(chalk.green('Files deleted'));
+    console.log('Files deleted');
   });
 
 program.parse(process.argv);
