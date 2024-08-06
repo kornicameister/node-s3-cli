@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.cli.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["node", "vitest/globals", "aws-sdk-client-mock-jest"]
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts", "package.json"]
+}

@@ -1,0 +1,73 @@
+{
+  "name": "@kornicameister/s3-cli",
+  "version": "0.0.0",
+  "description": "A CLI for S3",
+  "keywords": [
+    "s3",
+    "node",
+    "aws",
+    "cli"
+  ],
+  "homepage": "https://github.com/kornicameister/node-s3-cli#readme",
+  "bugs": {
+    "url": "https://github.com/kornicameister/node-s3-cli/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kornicameister/node-s3-cli.git"
+  },
+  "license": "UNLICENSED",
+  "author": "kornicameister@gmail.com",
+  "main": "dist/index.js",
+  "scripts": {
+    "prerun": "npm run build",
+    "run": "node dist/index.js",
+    "build": "tsc -p tsconfig.cli.json",
+    "fix": "run-p fix:*",
+    "fix:eslint": "npm run lint:eslint -- --fix",
+    "fix:prettier": "prettier --write \"**/*.(yml|yaml|json|ts|js|md|mjs)\"",
+    "fix:package-json": "npx sort-package-json",
+    "lint": "run-p -c lint:*",
+    "lint:eslint": "eslint . --max-warnings 0",
+    "lint:package-json": "npm run sort-package-json -- --check",
+    "lint:packages": "lerna run lint",
+    "lint:prettier": "prettier --check \"**/*.(yml|yaml|json|ts|js|md|mjs)\"",
+    "pretest": "tsc -p tsconfig.test.json",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.624.0",
+    "chalk": "^4.1.2",
+    "commander": "^12.1.0",
+    "figlet": "^1.7.0"
+  },
+  "devDependencies": {
+    "@aws-sdk/types": "^3.598.0",
+    "@faker-js/faker": "^8.4.1",
+    "@rushstack/eslint-patch": "^1.10.3",
+    "@tsconfig/node20": "^20.1.4",
+    "@tsconfig/strictest": "^2.0.5",
+    "@types/aws-sdk": "^2.7.0",
+    "@types/figlet": "^1.5.8",
+    "@types/node": "^22.1.0",
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
+    "@vitest/coverage-istanbul": "^2.0.5",
+    "aws-sdk-client-mock": "3.0.1",
+    "aws-sdk-client-mock-jest": "3.0.1",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.1.3",
+    "npm-run-all2": "^6.2.2",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  },
+  "engine": {
+    "node": ">=20"
+  },
+  "overrides": {
+    "@smithy/types": "3.1.0"
+  }
+}
