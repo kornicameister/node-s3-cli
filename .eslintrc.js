@@ -3,7 +3,13 @@ module.exports = {
     node: true,
     browser: false,
   },
-  ignorePatterns: ['!**/.eslintrc.js', '!**/.prettierrc.js', '**/dist/**', '**/bin/**', '**/*.js'],
+  ignorePatterns: [
+    '!**/.eslintrc.js',
+    '!**/.prettierrc.js',
+    '**/dist/**',
+    '**/bin/**',
+    '**/*.js',
+  ],
   plugins: ['prettier', '@typescript-eslint', 'import'],
   extends: [
     'eslint:recommended',
